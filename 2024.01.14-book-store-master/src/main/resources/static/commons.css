@@ -1,0 +1,61 @@
+#logo {
+    width:400px;
+    margin: 15px auto;
+}
+
+#logo img {
+    width: 400px;
+    margin: 0;
+    padding: 0;
+}
+
+#menu {
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+.button {
+    font-size: 20px;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 15px;
+    color: black;
+    display: inline-block;
+    margin: 5px 25px;
+    padding: 5px 10px;
+    transition: border, color, background-color 1s;
+    cursor: pointer;
+    background-color: white;
+}
+
+.button:hover {
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+}
+
+#content {
+    width: 70%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.input-field {
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    color: black;
+    display: block;
+    margin: 5px auto;
+    padding: 5px 10px;
+    transition: border, color, background-color 1s;
+    background-color: white;
+    text-align: center;
+    width: 350px;
+}
+
+.input-field:hover {
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+}

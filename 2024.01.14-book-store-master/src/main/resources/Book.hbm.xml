@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pl.comarch.camp.it.book.store.model.Book" table="tbook">
+        <id name="id" column="id" type="int">
+            <generator class="identity"/>
+        </id>
+        <property name="title" column="title" type="string"/>
+        <property name="author" column="author" type="string"/>
+        <property name="isbn" column="isbn" type="string"/>
+        <property name="price" column="price" type="big_decimal" precision="6" scale="2"/>
+        <property name="quantity" column="quantity" type="int"/>
+        <many-to-one name="creator" column="creator_id" class="pl.comarch.camp.it.book.store.model.User" lazy="false"/>
+    </class>
+</hibernate-mapping>

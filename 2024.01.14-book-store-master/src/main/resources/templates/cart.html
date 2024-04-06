@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{fragments.html :: headers}"></th:block>
+  <link rel="stylesheet" href="/cart.css">
+</head>
+<body>
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+<div id="content">
+  <div class="position">
+    <div class="title">Tytuł</div>
+    <div class="author">Autor</div>
+    <div class="price">Cena</div>
+    <div class="quantity">Ilość</div>
+    <div class="sum">Suma</div>
+    <div class="remove"></div>
+  </div>
+  <div class="position" th:each="position : ${session.user.cart}">
+    <div th:text="${position.book.title}" class="title"></div>
+    <div th:text="${position.book.author}" class="author"></div>
+    <div th:text="${position.book.price}" class="price"></div>
+    <div th:text="${position.quantity}" class="quantity"></div>
+    <div th:text="${position.book.price * position.quantity}" class="sum"></div>
+    <div class="remove"><a th:href="@{/cart/remove/{id}(id=${position.book.id})}"></a></div>
+  </div>
+  <div class="position">
+    <div class="title"></div>
+    <div class="author"></div>
+    <div class="price"></div>
+    <div class="quantity">Suma</div>
+    <div class="sum" th:text="${session.user.total()}"></div>
+    <div class="remove"></div>
+  </div>
+  <a href="/order/confirm" class="button">Zamów</a>
+</div>
+</body>
+</html>

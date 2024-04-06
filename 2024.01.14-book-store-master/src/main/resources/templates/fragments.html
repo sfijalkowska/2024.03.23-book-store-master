@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="logo" th:fragment="logo">
+    <img src="/logo.png">
+</div>
+
+<div id="menu" th:fragment="menu">
+    <a href="/main" class="button">Strona Główna</a>
+    <a href="/contact" class="button">Kontakt</a>
+    <a href="/cart"  class="button" th:if="${session.user != null}">Koszyk</a>
+    <a href="/order" class="button" th:if="${session.user != null}">Zamówienia</a>
+    <a href="/login" class="button" th:if="${session.user == null}">Zaloguj</a>
+    <a href="/logout" class="button" th:if="${session.user != null}">Wyloguj</a>
+    <a href="/book/add" class="button" th:if="${session.user != null && session.user.role == T(pl.comarch.camp.it.book.store.model.User.Role).ADMIN}">Dodaj Książkę</a>
+</div>
+
+<th:block th:fragment="headers">
+    <meta charset="UTF-8">
+    <title>Super Book Store</title>
+    <link rel="stylesheet" href="/commons.css">
+</th:block>
+</body>
+</html>

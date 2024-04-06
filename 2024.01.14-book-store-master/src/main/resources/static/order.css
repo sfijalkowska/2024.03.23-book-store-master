@@ -1,0 +1,29 @@
+.order {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.order div {
+    display: inline-block;
+}
+
+.id, .date, .status, .total {
+    width: 24%;
+}
+
+.positions {
+    display: none !important;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.positions-show {
+    display: block !important;
+    width: 80%;
+    margin: 5px auto;
+}

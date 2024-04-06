@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments.html :: headers}"></th:block>
+    <link rel="stylesheet" href="/cart.css">
+    <link rel="stylesheet" href="/order.css">
+    <script src="/order.js"></script>
+</head>
+<body>
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+<div id="content">
+    <div class="order">
+        <div class="id">Id</div>
+        <div class="date">Data</div>
+        <div class="status">Status</div>
+        <div class="total">Kwota</div>
+    </div>
+    <div class="order" th:each="order : ${orders}" th:onclick="'javascript:dropDown(' + ${order.id} + ')'">
+        <div th:text="${order.id}" class="id"></div>
+        <div th:text="${order.getFormattedDate()}" class="date"></div>
+        <div th:text="${order.status}" class="status">status</div>
+        <div th:text="${order.total}" class="total">kwota</div>
+        <div class="positions" th:id="positions + ${order.id}">
+            <div class="position">
+                <div class="title">Tytuł</div>
+                <div class="author">Autor</div>
+                <div class="price">Cena</div>
+                <div class="quantity">Ilość</div>
+                <div class="sum">Suma</div>
+            </div>
+            <div class="position" th:each="position : ${order.positions}">
+                <div th:text="${position.book.title}" class="title"></div>
+                <div th:text="${position.book.author}" class="author"></div>
+                <div th:text="${position.book.price}" class="price"></div>
+                <div th:text="${position.quantity}" class="quantity"></div>
+                <div th:text="${position.book.price * position.quantity}" class="sum"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+.position {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: default;
+}
+
+.position div {
+    display: inline-block;
+}
+
+.title {
+    width: 30%;
+}
+
+.author {
+    width: 25%;
+}
+
+.price {
+    width: 10%;
+}
+
+.quantity {
+    width: 10%;
+}
+
+.sum {
+    width: 10%;
+}
+
+.remove {
+    height: 22px;
+    width:10%;
+}
+
+.remove a {
+    background-size: contain;
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-image: url("/bin.png");
+}

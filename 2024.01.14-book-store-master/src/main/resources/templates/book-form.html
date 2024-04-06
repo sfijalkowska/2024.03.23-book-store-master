@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments.html :: headers}"></th:block>
+    <script src="/book-validator.js"></script>
+</head>
+<body>
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+<div id="content">
+    <form method="post" onsubmit="return validate()">
+        <input type="text" placeholder="Tytuł" class="input-field" th:field="*{bookModel.title}" id="title">
+        <input type="text" placeholder="Autor" class="input-field" th:field="*{bookModel.author}" id="author">
+        <input type="text" placeholder="ISBN" class="input-field" th:field="*{bookModel.isbn}" id="isbn">
+        <input type="text" placeholder="Cena" class="input-field" th:field="*{bookModel.price}" id="price">
+        <input type="text" placeholder="Ilość" class="input-field" th:field="*{bookModel.quantity}" id="quantity">
+        <p id="info"></p>
+        <input type="submit" value="Dodaj" class="button">
+    </form>
+</div>
+</body>
+</html>

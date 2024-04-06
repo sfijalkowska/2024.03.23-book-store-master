@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments.html :: headers}"></th:block>
+    <link rel="stylesheet" href="/book.css">
+</head>
+<body>
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+<div id="content">
+    <form action="/filter" method="get">
+        <input type="text" placeholder="Szukaj" class="input-field"
+               name="pattern" style="display: inline-block;" th:value="${session.filter}">
+        <input type="submit" value="OK" class="button">
+    </form>
+    <div class="book" th:each="book : ${books}">
+        <div th:text="${book.title}" class="title"></div>
+        <div th:text="${book.author}" class="author"></div>
+        <div th:text="${'Cena: ' + book.price + ' zł'}" class="price"></div>
+        <div th:text="${'ISBN: ' + book.isbn}" class="isbn"></div>
+        <div th:text="${'Ilość: ' + book.quantity}" class="quantity"></div>
+        <a th:href="@{/cart/add/{id}(id=${book.id})}" th:if="${session.user != null}">Dodaj do koszyka</a>
+        <a th:href="@{/book/update/{id}(id=${book.id})}" th:if="${session.user != null && session.user.role == T(pl.comarch.camp.it.book.store.model.User.Role).ADMIN}">Edytuj</a>
+    </div>
+</div>
+</body>
+</html>
